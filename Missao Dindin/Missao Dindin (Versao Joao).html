@@ -1,0 +1,103 @@
+<script>
+var dinheiro = 1518
+var PagouAsContas = 0
+var codigoDoTrabalho = Math.floor(Math.random() * 100)
+var IconeDoDinheiro = document.documentElement.appendChild(document.createElement("img"))
+var Texto = document.documentElement.appendChild(document.createElement("i"))
+var botaoDePagarContaDeTelefone = document.documentElement.appendChild(document.createElement("button"))
+var botaoDeComprarFastFood = document.documentElement.appendChild(document.createElement("button"))
+var botaoDeComprarCestaBasica = document.documentElement.appendChild(document.createElement("button"))
+var botaoDePagarAluguel = document.documentElement.appendChild(document.createElement("button"))
+var botaoDePagarContaDaAgua = document.documentElement.appendChild(document.createElement("button"))
+var botaoDePagarALuz = document.documentElement.appendChild(document.createElement("button"))
+var botaoDeComprarCelular = document.documentElement.appendChild(document.createElement("button"))
+var CaixaDeCodigo = document.documentElement.appendChild(document.createElement("input"))
+var Trabalhar = document.documentElement.appendChild(document.createElement("button"))
+var botaoDeComprarVideogame = document.documentElement.appendChild(document.createElement("button"))
+var botaoDeComprarTelevisao = document.documentElement.appendChild(document.createElement("button"))
+var botaoDeComprarBrinquedos = document.documentElement.appendChild(document.createElement("button"))
+CaixaDeCodigo.onchange = function() {
+    if (Number(CaixaDeCodigo.value) == codigoDoTrabalho) {
+        pagar(-300)
+    } else {
+        alert("Codigo Errado")
+    }
+}
+document.documentElement.style.backgroundImage = "url(BackgroundJoao.png)"
+document.documentElement.style.backgroundRepeat = "no-repeat"
+IconeDoDinheiro.src = "Dinheiro.png"
+Texto.innerText = dinheiro
+function pagar(pagamento) {
+   var dinheiro1 = dinheiro - pagamento
+   Texto.innerText = dinheiro1
+   dinheiro = dinheiro1
+   if (PagouAsContas == true) {
+       open("vc%20ganhou.png")
+       setTimeout(close,1)
+   } else if (dinheiro <= 0) {
+       open("perdeu.png")
+       setTimeout(close,1)
+   }
+}
+botaoDeComprarCelular.innerText = "Celular (R$ 649.01)"
+botaoDeComprarCelular.onclick = function() {
+    pagar(649.01)
+    open("https://m.media-amazon.com/images/I/512Z9R-EZDL.__AC_SX300_SY300_QL70_ML2_.jpg")
+}
+botaoDePagarALuz.innerText = "Conta de Luz (R$ 120)"
+botaoDePagarALuz.onclick = function() {
+    pagar(120)
+    PagouAsContas += 0.25
+    open("Conta.png")
+    botaoDePagarALuz.remove()
+}
+botaoDePagarContaDaAgua.innerText = "Conta da agua (R$ 90)"
+botaoDePagarContaDaAgua.onclick = function() {
+    pagar(90)
+    PagouAsContas += 0.25
+    open("Conta.png")
+    botaoDePagarContaDaAgua.remove()
+}
+botaoDePagarAluguel.innerText = "Aluguel (R$ 500)"
+botaoDePagarAluguel.onclick = function() {
+    pagar(500)
+    PagouAsContas += 0.25
+    open("Conta.png")
+    botaoDePagarAluguel.remove()
+}
+botaoDeComprarCestaBasica.innerText = "Cesta Basica (R$ 200)"
+botaoDeComprarCestaBasica.onclick = function() {
+    pagar(200)
+}
+botaoDeComprarFastFood.innerText = "Fast Food (R$ 26.90)"
+botaoDeComprarFastFood.onclick = function() {
+    pagar(26.9)
+    open("McDonald's.png")
+}
+botaoDePagarContaDeTelefone.innerText = "Conta de Telefone (R$ 48)"
+botaoDePagarContaDeTelefone.onclick = function() {
+    pagar(48)
+    PagouAsContas += 0.25
+    open("Conta.png")
+    botaoDePagarContaDeTelefone.remove()
+}
+Trabalhar.innerText = "Trabalhar"
+Trabalhar.onclick = function() {
+    codigoDoTrabalho = Math.floor(Math.random() * 100)
+    localStorage.setItem("codigo",codigoDoTrabalho)
+    open("Trabalho.html")
+}
+botaoDeComprarVideogame.innerText = "Videogame (R$ 1924)"
+botaoDeComprarVideogame.onclick = function() {
+    pagar(1924)
+    open("Nintendo.png")
+}
+botaoDeComprarTelevisao.innerText = "Televisao (R$ 1540.90)"
+botaoDeComprarTelevisao.onclick = function() {
+    pagar(1540.9)
+}
+botaoDeComprarBrinquedos.innerText = "Brinquedos (R$ 149)"
+botaoDeComprarBrinquedos.onclick = function() {
+    pagar(149)
+}
+</script>

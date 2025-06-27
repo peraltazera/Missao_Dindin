@@ -1,0 +1,21 @@
+<script>var Triangulo = document.documentElement.appendChild(document.createElement("img"))
+var codigoDoTrabalho = localStorage.getItem('codigo')
+Triangulo.src = "file:///C:/Users/Lucas/OneDrive/Desktop/PastaParaEconomizarArmazenamento/Projeto%20De%20Educacao%20Financeira/triangulo.png"
+function Ativar() {
+    var RespostaErrada = document.documentElement.appendChild(document.createElement("button"))
+    var RespostaCerta = document.documentElement.appendChild(document.createElement("button"))
+    RespostaErrada.innerText = "Quadrado"
+    RespostaCerta.innerText = "Triangulo"
+    RespostaCerta.onclick = function() {
+        document.write("Voce Esta Certo, Aqui Esta Seu Codigo" + codigoDoTrabalho)
+    }
+    RespostaErrada.onclick = function() {
+        document.write("Voce Esta Errado Tente Novamente")
+    }
+}
+var Ativar2 = Ativar
+Triangulo.onclick = function() {
+    Triangulo.remove()
+    setTimeout(Ativar2,1000)
+}
+</script>
